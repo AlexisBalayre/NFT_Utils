@@ -1,9 +1,10 @@
-# Sample Hardhat Project
+# Deployer Contract for NFTs Collection
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+There are two contracts in this project:
+- `NFT.sol` - ERC721 contract
+- `NFTDeployer.sol` - contract that deploys ERC721 NFTs contracts
 
 Try running some of the following tasks:
-
 ```shell
 npx hardhat help
 npx hardhat test
