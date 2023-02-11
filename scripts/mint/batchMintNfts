@@ -1,0 +1,24 @@
+import { ethers } from "hardhat";
+import { Nft } from "../../typechain-types";
+
+// TODO: Replace with your own values
+const nftCollectionContract = "";
+const to: string[] = [];
+
+async function main() {
+    const [ , minter ] = await ethers.getSigners();
+    for (let i = 0; i < to.length; i++) {
+        console.log(`Minting NFT to ${to[i]} ...`);
+        let nft = await ethers.getContractAt("Nft", nftCollectionContract) as Nft;
+        let tx = await nft.connect(minter).safeMint(to[i]);
+        await tx.wait();
+        console.log(`NFT minted`);
+    }
+}
+
+// We recommend this pattern to be able to use async/await everywhere
+// and properly handle errors.
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
